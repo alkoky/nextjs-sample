@@ -1,0 +1,124 @@
+import Head from 'next/head'
+import Image from 'next/image'
+import styles from '../styles/Home.module.css'
+import Script from 'next/script'
+import Link from 'next/link'
+
+export default function Home() {
+  return (
+    <div className={styles.container}>
+ 
+      <Head id="header-main">
+      <meta name="image" property="image" content="https://www.gallo.combarefoot-hard-seltzer.jpg" />
+      <link rel="stylesheet"  href="https://www.gallo.com/dist/main.css" />
+	
+
+				
+<nav id="header">
+	<div className="toggle">		<Image src='/img/logo.PNG' alt='' layout='fill' />
+		<a className="icon-menu" data-gtm="Nav > Main > Mobile" data-gtm-value="Open"></a>
+
+		<a className="icon-close" data-gtm="Nav > Main > Mobile" data-gtm-value="Close"></a>
+	</div>
+	<div className="overlay"></div>
+
+	<div className="logo">
+			<span className="sr-only">Home</span>
+			<div className="icon-logo-mark"></div>
+			<div className="icon-logo-type"></div>
+	</div>
+
+	<ul className="main-nav">
+		<li>
+			<Link href="/"  data-gtm="Nav > Main" data-gtm-value="Our Story" className="">
+				Our Story
+			</Link></li>
+
+		<li><a href="/responsibility" data-gtm="Nav > Main" data-gtm-value="Responsibility" className="">
+			Responsibility</a></li>
+
+		<li><a href="/portfolio/" data-gtm="Nav > Main" data-gtm-value="Our Portfolio" className="active">
+			Our Portfolio</a></li>
+
+		<li><a href="http://www.gallocareers.com/" target="_blank" data-gtm="Nav > Main" data-gtm-value="Careers" className="" rel="noreferrer">
+			Careers</a></li>
+
+		<li><a href="/press" data-gtm="Nav > Main" data-gtm-value="Press" className="">
+			Press</a></li>
+
+	</ul>
+</nav>
+			</Head>
+        <Script id='cdpinit' strategy='beforeInteractive' src='/cdp-demo-init.js' />
+        <Script id='cdpscript' strategy='beforeInteractive' src='/cdp-demo.js' 
+         onLoad={() => {
+            alert('hi');
+            cdpViewEvent();
+         }}
+        />
+      <main className={styles.main}>
+        <h1 className={styles.title}>
+          Welcome to <a href="https://nextjs.org">Next.js! Test4</a>
+        </h1>
+
+        <p className={styles.description}>
+          Get started by editing{' '}
+          <code className={styles.code}>pages/index.js</code>
+        </p>
+
+        <div className={styles.grid}>
+          <a href="https://nextjs.org/docs" className={styles.card}>
+            <h2>Documentation &rarr;</h2>
+            <p>Find in-depth information about Next.js features and API.</p>
+          </a>
+
+          <a href="https://nextjs.org/learn" className={styles.card}>
+            <h2>Learn &rarr;</h2>
+            <p>Learn about Next.js in an interactive course with quizzes!</p>
+          </a>
+
+          <a
+            href="https://github.com/vercel/next.js/tree/canary/examples"
+            className={styles.card}
+          >
+            <h2>Examples &rarr;</h2>
+            <p>Discover and deploy boilerplate example Next.js projects.</p>
+          </a>
+
+          <a
+            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+            className={styles.card}
+          >
+            <h2>Deploy &rarr;</h2>
+            <p>
+              Instantly deploy your Next.js site to a public URL with Vercel.
+            </p>
+          </a>
+        </div>
+      </main>
+
+      <footer className={styles.footer}>
+        <a
+          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Powered by{' '}
+          <span className={styles.logo}>
+            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
+          </span>
+        </a>
+      </footer>
+
+      <Script strategy="afterInteractive" id='cdp'
+      dangerouslySetInnerHTML={{
+    __html: `
+    alert('hi');
+    cdpViewEvent();
+    `,
+            }}
+      />
+  
+    </div>
+  )
+}
