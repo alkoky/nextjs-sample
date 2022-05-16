@@ -95,13 +95,13 @@ const cdp = {
 
  , pullSitecoreData:(itemid)=>{
 
-					  var baseUrl = 'http://aesitecore9demo-design.idevdesign.net/sitecore/api/ssc/item/';
+					  var baseUrl = 'https://aesitecore9demo-design.idevdesign.net/sitecore/api/ssc/item/';
 					  var options = '?fields=ItemId,ItemName,Title,Body,Image'
 					   console.log(' item id '+itemid);
 					   console.log(baseUrl+itemid);
 
 					   function getImageUrl(imageRaw){
-						var imageBaseUrl = 'http://aesitecore9demo-design.idevdesign.net/';
+						var imageBaseUrl = 'https://aesitecore9demo-design.idevdesign.net/';
 
 						   var imageOptions= '?fields=ItemMedialUrl,ItemUrl';
 						var imageId = imageRaw.substring(
