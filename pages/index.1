@@ -5,6 +5,10 @@ import Script from 'next/script'
 import Link from 'next/link'
 
 export default function Home() {
+  function handleOptionChange(e) {
+    const { name, checked } = e.target;
+    setOptions(options => ({ ...options, [name]: checked }));
+}
   return (
     <div className={styles.container}>
  
