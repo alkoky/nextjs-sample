@@ -2,6 +2,7 @@ const pos = 'aenextjsdemo';
 const clientId = 'psfu6uh05hsr9c34rptlr06dn864cqrx';
 const friendlyId ='eg_full_stack_location';
 import $ from 'jquery';
+import { execOnce } from 'next/dist/shared/lib/utils';
 
 var _boxeverq = _boxeverq || [];
 
@@ -40,7 +41,7 @@ const cdp = {
 			"language": "EN",   // update before using. e.g. “en”
 			"currency": "USD",  // update before using. e.g. “EUR”
 			"browserId": Boxever.getID(),
-			"clientKey": clientId,   
+			"clientKey": clientId,
 			"friendlyId": friendlyId,
 			"page": '/',//window.location.pathname
 			"pos":"aedemo" //window.location.hostname.substring(4, window.location.hostname.length)
@@ -85,6 +86,19 @@ const cdp = {
 				  console.info('sendIdentity success! ',cdpData);
 				  if(cdpData){
 					cdp.personalize();
+					// executeExperience('/',friendlyId,
+					// function(response) {
+					// 	// use the response object
+					// 	if(response && response.itemid){
+					// 		var itemid = response.itemid[0].attributes.sitecoreitemid;
+					// 		 console.info('new',itemid);
+								  
+					// 		cdp.pullSitecoreData(itemid.replace('{', '').replace('}', ''));
+					// 	}
+					// 	console.info(response);
+					//   }
+					// );
+					
 					  
 				  }
 			  }, 'json');

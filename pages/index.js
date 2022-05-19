@@ -79,6 +79,7 @@ export default function Home({  }) {
                   <button className='cdpButton' id="cdpbtn-west" value='thor.odinsson@avengers.gov'>
                         west
                         </button>
+                        &nbsp;
                       <button className="cdpButton" id='cdpbtn-midwest' type="button" value='naim.al@americaneagle.com' >
                       midwest
                           </button>
@@ -87,16 +88,12 @@ export default function Home({  }) {
                 </div>
                 <div className="row">
                 <div className="col-sm-2">
-                    <div id='product-image-div' className="brand-photo"><Image id='product-image' src="/" alt="product"  width={315} height={500}/></div>
+                    <div id='product-image-div' className="brand-photo"><Image id='product-image' src="/EJ_default_img.JPG" alt="product"  width={315} height={500}/></div>
                 </div>
                 <div className="col-sm-4">
                 <div className="detail">
-                          <h2 id="product-title" className="lined gold">product title place holder</h2>
-                          <p id="product-body">product body place holder</p>
-
-                          <div className="links">
-                              <a className="btn" href="http://www.barefootwine.com" target="_blank" data-gtm="Brand > Website" data-gtm-value="Barefoot Hard Seltzer" rel="noreferrer">Visit the website</a>
-                          </div>
+                          <h2 id="product-title" className="lined gold">Welcome to E&J Gallo Winery</h2>
+                          <p id="product-body">From our humble beginnings, the hallmark of our company has been an unwavering commitment to quality. By taking the utmost care through each and every step of the grape growing and winemaking process, we are able to consistently deliver world-class wines, spirits, and other alcoholic beverages for every occasion. Today we are recognized as one of the leading global producers of these products, both in the art of grape growing and wine and spirits making and also in the distribution and marketing of these products in more than 100 countries around the globe.</p>
                       </div>
                     </div>
                     <div className="col-sm-4"></div>
