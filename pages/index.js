@@ -58,11 +58,19 @@ export default function Home({  }) {
           function addToCart() {
            
              const text = document.getElementById('add-to-cart-input').value;
+             let qty = document.getElementById('add-to-cart-input-qty').value;
+             let price = document.getElementById('add-to-cart-input-price').value;
              if(text){
               const page = '/';
-      
+              if(!qty || qty==''){
+                qty="1";
+              }
+
+              if(!price || price==''){
+                price="1";
+              }
               //sendIdentityByEmailEvent('/', 'naim.al@americaneagle.com');
-              cdp.cdpAddProductEvent(text);
+              cdp.cdpAddProductEvent(text,qty,price);
              }
             }
 
@@ -103,16 +111,21 @@ export default function Home({  }) {
                   <button className="cdpButton" id='cdpbtn-midwest' type="button" value='naim.al@americaneagle.com' >
                       midwest
                   </button>
+                  <div></div>
                   &nbsp;
                   <div>
-                    <span>Product Name: <input type="text" id="add-to-cart-input" /></span>
+                    <span>Product Name: <input type="text" id="add-to-cart-input" style={{width: '12em'}}/></span>  &nbsp;
+                    <span>Qty: <input type="text" id="add-to-cart-input-qty" style={{width: '2em'}}/></span>  &nbsp;
+                    <span>Price: <input type="text" id="add-to-cart-input-price" style={{width: '3em'}}/></span>  &nbsp;
                   <button className="cdpButton" id='cdpbtn-add-to-cart' type="button"  >
                       Add to cart
                   </button>
                   &nbsp;
+                  <div>{'\n\n '}
                   <button className="cdpButton" id='cdpbtn-end-session' type="button"  >
                       End Session
                   </button>
+                  </div>
                   </div>
                       
                 </div>

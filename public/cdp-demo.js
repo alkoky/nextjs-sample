@@ -32,7 +32,7 @@ const cdp = {
 		//this is not related to the view event, we are trying to personalize the page after we are recording the view event but thats not always the case
 		//personalize();
 	} ,
-    cdpAddProductEvent: (productName) => {
+    cdpAddProductEvent: (productName,qty,price) => {
 		if (!window._boxever)
 			return;
 			var product = {
@@ -44,11 +44,11 @@ const cdp = {
 				"item_id":productName+"_90",
 				"name":productName,
 				//"orderedAt":datetime,
-				"quantity":1,
-				"price":100.00,
+				"quantity":qty,
+				"price":price,
 				"productId":productName+"_id",
 				"currency":"USD",
-				"originalPrice":100.00,
+				"originalPrice":price,
 				"originalCurrencyCode":"USD",
 				"referenceId":productName+"-001-1"
 			  };
