@@ -34,6 +34,9 @@ export default function Home({  }) {
         document.getElementById('cdpbtn-midwest').onclick  =  sendIdentity;
         document.getElementById('cdpbtn-west').onclick  =  sendIdentity;
 
+        document.getElementById('cdpbtn-add-to-cart').onclick  =  addToCart;
+        document.getElementById('cdpbtn-end-session').onclick  =  endSession;
+
         //sendViewEvent('/');
         console.info(document.getElementById('cdpbtn'));
         function sendIdentity(email) {
@@ -51,6 +54,23 @@ export default function Home({  }) {
          //   console.log('You clicked sendidentity!!!');
            
           }
+
+          function addToCart() {
+           
+             const text = document.getElementById('add-to-cart-input').value;
+             if(text){
+              const page = '/';
+      
+              //sendIdentityByEmailEvent('/', 'naim.al@americaneagle.com');
+              cdp.cdpAddProductEvent(text);
+             }
+            }
+
+            function endSession() {
+           
+                 cdp.cdpEndSession();
+             }
+
     })
 
   return (
@@ -80,11 +100,22 @@ export default function Home({  }) {
                         west
                         </button>
                         &nbsp;
-                      <button className="cdpButton" id='cdpbtn-midwest' type="button" value='naim.al@americaneagle.com' >
+                  <button className="cdpButton" id='cdpbtn-midwest' type="button" value='naim.al@americaneagle.com' >
                       midwest
-                          </button>
+                  </button>
+                  &nbsp;
+                  <div>
+                    <span>Product Name: <input type="text" id="add-to-cart-input" /></span>
+                  <button className="cdpButton" id='cdpbtn-add-to-cart' type="button"  >
+                      Add to cart
+                  </button>
+                  &nbsp;
+                  <button className="cdpButton" id='cdpbtn-end-session' type="button"  >
+                      End Session
+                  </button>
+                  </div>
                       
-                    </div>
+                </div>
                 </div>
                 <div className="row">
                 <div className="col-sm-2">

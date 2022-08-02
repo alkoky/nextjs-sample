@@ -31,9 +31,79 @@ const cdp = {
 
 		//this is not related to the view event, we are trying to personalize the page after we are recording the view event but thats not always the case
 		//personalize();
-	} 
-    
-	,
+	} ,
+    cdpAddProductEvent: (productName) => {
+		if (!window._boxever)
+			return;
+			var product = {
+				// "item_id":productName+"_id",//mandatory
+				// "product_id":productName+"_id",
+				// "product_name": productName+"_id",
+				// "product_type": "DRINK"
+				"type":"DRINK",
+				"item_id":productName+"_90",
+				"name":productName,
+				//"orderedAt":datetime,
+				"quantity":1,
+				"price":100.00,
+				"productId":productName+"_id",
+				"currency":"USD",
+				"originalPrice":100.00,
+				"originalCurrencyCode":"USD",
+				"referenceId":productName+"-001-1"
+			  };
+		//console.log( "BID:" );
+		//console.log(Boxever.getID());
+		console.info('add product event');
+		window._boxeverq.push(function () {
+			var searchEvent = {
+				"browser_id": Boxever.getID(),
+				"channel": "WEB",
+				"type": "ADD",
+				"language": "EN",
+				"currency": "USD",
+				"page": '/',
+				"pos": pos,
+				"product": product
+			};
+			// Invoke event create 
+			// (<event msg>, <callback function>, <format>)
+			Boxever.eventCreate(searchEvent, function (data) { }, 'json');
+		});
+
+		//this is not related to the view event, we are trying to personalize the page after we are recording the view event but thats not always the case
+		//personalize();
+	} ,
+	cdpEvent: (eventType) => {
+		if (!window._boxever)
+			return;
+		//console.log( "BID:" );
+		//console.log(Boxever.getID());
+		console.info(eventType+' event');
+		window._boxeverq.push(function () {
+			var searchEvent = {
+				"browser_id": Boxever.getID(),
+				"channel": "WEB",
+				"type": eventType,
+				"language": "EN",
+				"currency": "USD",
+				"page": '/',
+				"pos": pos,
+				
+			};
+			// Invoke event create 
+			// (<event msg>, <callback function>, <format>)
+			Boxever.eventCreate(searchEvent, function (data) { }, 'json');
+		});
+
+		//this is not related to the view event, we are trying to personalize the page after we are recording the view event but thats not always the case
+		//personalize();
+	} ,
+	cdpEndSession: (eventType) => {
+		cdp.cdpEvent("FORCE_CLOSE");
+		//this is not related to the view event, we are trying to personalize the page after we are recording the view event but thats not always the case
+		//personalize();
+	} ,
  personalize:()=>{
 	var callFlowsContext = {
 		  context: {
