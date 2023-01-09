@@ -2,6 +2,7 @@ const pos = 'aenextjsdemo';
 const clientId = 'psfu6uh05hsr9c34rptlr06dn864cqrx';
 const friendlyId ='eg_full_stack_location';
 import $ from 'jquery';
+import { getParametrizedRoute } from 'next/dist/shared/lib/router/utils/route-regex';
 import { execOnce } from 'next/dist/shared/lib/utils';
 
 var _boxeverq = _boxeverq || [];
@@ -31,28 +32,188 @@ const cdp = {
 
 		//this is not related to the view event, we are trying to personalize the page after we are recording the view event but thats not always the case
 		//personalize();
-	} ,
-    cdpAddProductEvent: (productName,qty,price) => {
+	} ,cdpAddConsumersEvent: (title,firstName, lastName) => {
 		if (!window._boxever)
 			return;
+			var consumer = {
+				// "item_id":productName+"_id",//mandatory
+				// "product_id":productName+"_id",
+				// "product_name": productName+"_id",
+				// "product_type": "DRINK"
+				"title":title,
+				"firstname":firstName,
+				"lastname":lastName
+			  };
+		//console.log( "BID:" );
+		//console.log(Boxever.getID());
+		console.info('add Consumers event');
+		window._boxeverq.push(function () {
+			var searchEvent = {
+				"browser_id": Boxever.getID(),
+				"channel": "WEB",
+				"type": "ADD_CONSUMERS",
+				"language": "EN",
+				"currency": "USD",
+				"page": '/',
+				"pos": pos,
+				"consumer": consumer
+			};
+			// Invoke event create 
+			// (<event msg>, <callback function>, <format>)
+			Boxever.eventCreate(searchEvent, function (data) { }, 'json');
+		});
+
+		//this is not related to the view event, we are trying to personalize the page after we are recording the view event but thats not always the case
+		//personalize();
+	} ,
+	cdpAddContactsEvent: (title,firstName, lastName , email) => {
+		if (!window._boxever)
+			return;
+			var contact = {
+				// "item_id":productName+"_id",//mandatory
+				// "product_id":productName+"_id",
+				// "product_name": productName+"_id",
+				// "product_type": "DRINK"
+				"title":title,
+				"firstname":firstName,
+				"lastname":lastName,
+				email: email
+			  };
+		//console.log( "BID:" );
+		//console.log(Boxever.getID());
+		console.info('add Contacts event');
+		window._boxeverq.push(function () {
+			var searchEvent = {
+				"browser_id": Boxever.getID(),
+				"channel": "WEB",
+				"type": "ADD_CONTACTS",
+				"language": "EN",
+				"currency": "USD",
+				"page": '/',
+				"pos": pos,
+				"contact": contact
+			};
+			// Invoke event create 
+			// (<event msg>, <callback function>, <format>)
+			Boxever.eventCreate(searchEvent, function (data) { }, 'json');
+		});
+
+		//this is not related to the view event, we are trying to personalize the page after we are recording the view event but thats not always the case
+		//personalize();
+	} ,
+	cdpAddConfirmEvent: (productItems) => {
+		if (!window._boxever)
+			return;
+			 
+			var ext = { 
+				"relProdConf": ["-rel1", "-rel2"]
+			  }
+
+		console.log( "product Items:", productItems );
+		//console.log(Boxever.getID());
+		console.info('add confirm event');
+		window._boxeverq.push(function () {
+			var searchEvent = {
+				"browser_id": Boxever.getID(),
+				"channel": "WEB",
+				"type": "CONFIRM",
+				"language": "EN",
+				"currency": "USD",
+				"page": '/',
+				"pos": pos,
+				"product": productItems,
+				"ext":ext
+			};
+			// Invoke event create 
+			// (<event msg>, <callback function>, <format>)
+			Boxever.eventCreate(searchEvent, function (data) { }, 'json');
+		});
+
+		//this is not related to the view event, we are trying to personalize the page after we are recording the view event but thats not always the case
+		//personalize();
+	} ,
+	cdpAddCheckoutEvent: (productName,qty,price,itemId) => {
+		if (!window._boxever)
+			return;
+			var ext = { 
+				"relProdCheck": [productName+"-rel1", productName+"-rel2"]
+			  }
 			var product = {
 				// "item_id":productName+"_id",//mandatory
 				// "product_id":productName+"_id",
 				// "product_name": productName+"_id",
 				// "product_type": "DRINK"
-				"type":"DRINK",
-				"item_id":productName+"_90",
+				"type":"PRINTER",
+				"item_id":itemId,
 				"name":productName,
-				//"orderedAt":datetime,
+				"orderedAt":"2023-01-06T20:34:36.702Z",
 				"quantity":qty,
 				"price":price,
-				"productId":productName+"_id",
+				"productId":itemId,
 				"currency":"USD",
 				"originalPrice":price,
 				"originalCurrencyCode":"USD",
-				"referenceId":productName+"-001-1"
+				"referenceId":itemId,
+				"ext": ext
 			  };
+
+			var paymentReferenceId = 'B94TXJHGF12';
+			var status = 'PURCHASED';
 		//console.log( "BID:" );
+		//console.log(Boxever.getID());
+		console.info('add checkout event');
+		window._boxeverq.push(function () {
+			var searchEvent = {
+				"browser_id": Boxever.getID(),
+				"channel": "WEB",
+				"type": "CHECKOUT",
+				"language": "EN",
+				"currency": "USD",
+				"page": '/',
+				"pos": pos,
+				"reference_id": paymentReferenceId,
+				"status" : status,
+				// "product":product
+			};
+			// Invoke event create 
+			// (<event msg>, <callback function>, <format>)
+			Boxever.eventCreate(searchEvent, function (data) { }, 'json');
+		});
+
+		//this is not related to the view event, we are trying to personalize the page after we are recording the view event but thats not always the case
+		//personalize();
+	} ,
+    cdpAddProductEvent: (productName,qty,price,itemId,referenceId) => {
+		if (!window._boxever)
+			return;
+
+			var ext = { 
+				"relProd": [productName+"-rel1", productName+"-rel2"]
+			  }
+
+			var currentDate = new Date().getDate();
+			var product = {
+				// "item_id":productName+"_id",//mandatory
+				// "product_id":productName+"_id",
+				// "product_name": productName+"_id",
+				// "product_type": "DRINK"
+				"type":"PRINTER",
+				"item_id":itemId,
+				"name":productName,
+				"orderedAt":"2023-01-06T20:34:36.702Z",
+				"quantity":qty,
+				"price":price,
+				"productId":itemId,
+				"currency":"USD",
+				"originalPrice":price,
+				"originalCurrencyCode":"USD",
+				"referenceId":referenceId,
+				"extra":"sample",
+				"ext": ext
+			  };
+
+			 
+		console.log( "product",product );
 		//console.log(Boxever.getID());
 		console.info('add product event');
 		window._boxeverq.push(function () {
