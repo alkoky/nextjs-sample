@@ -174,40 +174,16 @@ export default function Home({  }) {
                   <tr>
                     <td>
                         <div className="col-sm-2">
-                            <div id='product-image-div' className="brand-photo"><Image id='product-image' src="/i5300.jpg" alt="product"  width={315} height={400}/></div>
+                            <div id='product-image-div' className="brand-photo"><Image id='product-image' src="/BradyLogoNew" alt="product"  width={315} height={400}/></div>
                         </div>
                       </td>
                       <td>
                         <div className="">
                         <div className="detail">
-                                  <h2 id="product-title" className="lined gold">Product Highlights</h2>
-                                  <p id="product-body">Maximum Label/Tape Width:
-
-                                    4.25 in <br/>
-
-                                    Color Printing Capability:
-
-                                    Single Color<br/>
-
-                                    Maximum Labels per Day:
-
-                                    5000<br/>
-
-                                    Stand Alone Printing:
-
-                                    PC connected<br/>
-
-                                    Print Resolution:
-
-                                    600 dpi<br/>
-
-                                    Print Technology:
-
-                                    Direct Thermal, Thermal Transfer<br/>
-
-                                    Cut Options Available:
-
-                                    Cut at the end of print jobs, Cut between labels, Full Cut</p>
+                                  <h2 id="product-title" className="lined gold">Industrial & Portable Label Printers and Makers</h2>
+                                  <p id="product-body">Ease of use, speed and efficiency guaranteed on every
+                                      Brady printer – your identification work is our work.
+                                      </p>
                                   {/* <p id="product-body">From our humble beginnings, the hallmark of our company has been an unwavering commitment to quality. By taking the utmost care through each and every step of the grape growing and winemaking process, we are able to consistently deliver world-class wines, spirits, and other alcoholic beverages for every occasion. Today we are recognized as one of the leading global producers of these products, both in the art of grape growing and wine and spirits making and also in the distribution and marketing of these products in more than 100 countries around the globe.</p> */}
                               </div>
                             </div>

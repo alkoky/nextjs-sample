@@ -366,7 +366,7 @@ const cdp = {
 									if(data?.ItemMedialUrl){
 									console.info('image url',imageBaseUrl+data.ItemMedialUrl);
 
-										$('#product-image-div').html('<img width="200px" height="500px" src="'+imageBaseUrl+data.ItemMedialUrl+'" />');
+										$('#product-image-div').html('<img width="400px" height="400px" src="'+imageBaseUrl+data.ItemMedialUrl+'" />');
 										//$('#product-image').src =imageBaseUrl+data.ItemMedialUrl;
 									}
 								},
