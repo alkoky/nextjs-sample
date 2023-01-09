@@ -174,7 +174,7 @@ export default function Home({  }) {
                   <tr>
                     <td>
                         <div className="col-sm-2">
-                            <div id='product-image-div' className="brand-photo"><Image id='product-image' src="/BradyLogoNew.png" alt="product"  width={315} height={400}/></div>
+                            <div id='product-image-div' className="brand-photo"><Image id='product-image' src="/BradyLogoNew.png" alt="product"  width={315} height={100}/></div>
                         </div>
                       </td>
                       <td>
