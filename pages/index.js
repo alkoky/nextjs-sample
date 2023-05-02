@@ -191,11 +191,11 @@ export default function Home({  }) {
                 <td>
                 <div className="col-sm">
                   <button className='cdpButton' id="cdpbtn-west" value='thor.odinsson@avengers.gov'>
-                        User 1
+                        Thor Logged In
                         </button>
                         &nbsp;
                   <button className="cdpButton" id='cdpbtn-midwest' type="button" value='naim.al@americaneagle.com' >
-                      User 2
+                      Naim Logged In
                   </button>
                   <div></div>
                   &nbsp;
@@ -209,19 +209,20 @@ export default function Home({  }) {
                     <tr>
                       <td>
                       <div>
-                          <div> CART{'\n\n\n '}</div>
+                          <div><b>CART</b>{'\n\n\n '}</div>
                           <span>Product GUID: <input type="text" id="add-to-cart-guid"   style={{width: '12em'}}/></span>  &nbsp;
-                          <div> {'\n\n\n '}</div>
+                          <div> &nbsp;{'\n\n\n '}&nbsp;</div>
                           <span>Product Name: <input type="text" id="add-to-cart-input"   style={{width: '12em'}}/></span>  &nbsp;
                           <span>Qty: <input type="text" id="add-to-cart-input-qty"   style={{width: '2em'}}/></span>  &nbsp;
                           <span>Price: <input type="text" id="add-to-cart-input-price"  style={{width: '3em'}}/></span>  &nbsp;
                         <button className="cdpButton" id='cdpbtn-add-to-cart' type="button"  >
-                            1- Add to cart
+                            Add to cart
                         </button>
                       
                         </div>
                       </td>
                       </tr>
+                      <tr><td>&nbsp;</td></tr>
                       {/*<tr>
                         <td>
                         <div>
