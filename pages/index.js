@@ -210,7 +210,7 @@ export default function Home({  }) {
                       <td>
                       <div>
                           <div><b>CART</b>{'\n\n\n '}</div>
-                          <span>Product GUID: <input type="text" id="add-to-cart-guid"   style={{width: '12em'}}/></span>  &nbsp;
+                          <span>SKU: <input type="text" id="add-to-cart-guid"   style={{width: '12em'}}/></span>  &nbsp;
                           <div> &nbsp;{'\n\n\n '}&nbsp;</div>
                           <span>Product Name: <input type="text" id="add-to-cart-input"   style={{width: '12em'}}/></span>  &nbsp;
                           <span>Qty: <input type="text" id="add-to-cart-input-qty"   style={{width: '2em'}}/></span>  &nbsp;
